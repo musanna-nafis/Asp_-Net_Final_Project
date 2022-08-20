@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace PL.Controllers.FinanceManagerController
 {
-    class FinanceManager_basicController : ApiController
+    public class FinanceManager_basicController : ApiController
     {
         [Route("api/FinanceManager/Home/{id}")]
         [HttpGet]
@@ -20,7 +20,7 @@ namespace PL.Controllers.FinanceManagerController
         }
         //Leave Request
 
-        [Route("api/Finance/Requests/{id}")]
+        [Route("api/FinanceManager/LeaveRequests/{id}")]
         [HttpGet]
         public HttpResponseMessage Leave(int id)
         {
