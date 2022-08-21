@@ -20,7 +20,7 @@ namespace PL.Controllers.FinanceManagerController
         }
         //Leave Request
 
-        [Route("api/FinanceManager/LeaveRequests/{id}")]
+        [Route("api/financemanager/leaverequest/{id}")]
         [HttpGet]
         public HttpResponseMessage Leave(int id)
         {
@@ -28,7 +28,7 @@ namespace PL.Controllers.FinanceManagerController
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
-        [Route("api/FinanceManager/LeaveRequests/delete/{id}")]
+        [Route("api/financemanager/leaverequest/delete/{id}")]
         [HttpGet]
         public HttpResponseMessage LeaveDelete(int id)
         {
@@ -36,11 +36,21 @@ namespace PL.Controllers.FinanceManagerController
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
-        [Route("api/FinanceManager/LeaveRequests/new/{id}")]
+        [Route("api/financemanager/leaverequest/new/{id}")]
         [HttpPost]
         public HttpResponseMessage CreateLeave(int id,LeaveRequestModel l)
         {
             var data = FinanceManagerBasicService.LeaveRequestCreate(id,l);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        // Profile show
+
+        [Route("api/financemanager/profile/{id}")]
+        [HttpGet]
+        public HttpResponseMessage profile(int id)
+        {
+            var data = FinanceManagerBasicService.myprofile(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
     }

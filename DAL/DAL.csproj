@@ -141,6 +141,7 @@
     <Compile Include="Interfaces\ProductManager\IWarehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\FinanceManagerRepo\LeaveRequestRepo.cs" />
+    <Compile Include="Repo\FinanceManagerRepo\ProfileRepo.cs" />
     <Compile Include="Repo\ProductManagerRepo\IssueRepo.cs" />
     <Compile Include="Repo\ProductManagerRepo\ProductRepo.cs" />
     <Compile Include="Repo\ProductManagerRepo\WareHouseRepo.cs" />

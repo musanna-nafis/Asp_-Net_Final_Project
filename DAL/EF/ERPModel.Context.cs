@@ -47,5 +47,6 @@ namespace DAL.EF
         public virtual DbSet<Sales_Activities> Sales_Activities { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Warehouse> Warehouses { get; set; }
+        public object User { get; internal set; }
     }
 }

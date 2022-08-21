@@ -26,6 +26,13 @@ namespace DAL.DataAccessFactory
         {
             return new LeaveRequestRepo(db);
         }
+
+        public static IRepo<User, int, bool> FinanceManagerProfileDataAccess()
+        {
+            return new ProfileRepo(db);
+        }
+
+        ///end
         public static IRepo<Product, int, bool> ProductDataAccess()
         {
             return new ProductRepo(db);
