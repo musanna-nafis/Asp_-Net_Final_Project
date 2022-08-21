@@ -35,7 +35,7 @@ namespace PL.Controllers.FinanceManagerController
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
-        [Route("api/financemanager/supplieradjust/{id}/{id}")]
+        [Route("api/financemanager/supplieradjust/{id}/{id1}")]
         [HttpGet]
         public HttpResponseMessage SupplierAdjust(int id,int id1)
         {
@@ -43,7 +43,7 @@ namespace PL.Controllers.FinanceManagerController
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
-        [Route("api/financemanager/customeradjust/{id}/{id}")]
+        [Route("api/financemanager/customeradjust/{id}/{id1}")]
         [HttpGet]
         public HttpResponseMessage CustomerAdjust(int id, int id1)
         {
