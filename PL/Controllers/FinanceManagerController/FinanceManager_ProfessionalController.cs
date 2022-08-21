@@ -58,5 +58,13 @@ namespace PL.Controllers.FinanceManagerController
             var data = FinanceManagerProfessionalService.Sendemail(email);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/financemanager/paymentchart/{id}")]
+        [HttpGet]
+        public HttpResponseMessage CHart(int id)
+        {
+            var data = FinanceManagerProfessionalService.chart(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
     }
 }

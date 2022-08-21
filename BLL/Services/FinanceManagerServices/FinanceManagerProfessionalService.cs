@@ -79,5 +79,10 @@ namespace BLL.Services.FinanceManagerServices
             return DataAccessFactory.FinanceManagerEmailDataAccess().emailsend(e);
 
         }
+
+        public static List<int> chart(int id)
+        {
+            return DataAccessFactory.FinanceManagerPaymentDataAccess().PaymentsChart(id);
+        }
     }
 }

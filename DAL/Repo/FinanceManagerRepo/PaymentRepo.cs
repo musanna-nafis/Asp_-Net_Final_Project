@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo.FinanceManagerRepo
 {
-    public class PaymentRepo : IRepo<Finance_payment_histories, int, bool> , IPaymentHistory<Finance_payment_histories, int> , IInvoice<Invoice, int>
+    public class PaymentRepo : IRepo<Finance_payment_histories, int, bool> , IPaymentHistory<Finance_payment_histories, int> , IInvoice<Invoice, int> ,IChart<int>
     {
         private ERPEntities db;
 
@@ -90,6 +90,21 @@ namespace DAL.Repo.FinanceManagerRepo
                            where e.manager_id == id && e.type.Equals("Supplier") && e.status.Equals("Unadjusted")
                            select e).ToList();
             return invoice;
+        }
+
+        public List<int> PaymentsChart(int id)
+        {
+            var Debit = (from e in db.Finance_payment_histories
+                         where e.type.Equals("Debit") && e.manager_id == id
+                         select e).Count();
+
+            var Credit = (from e in db.Finance_payment_histories
+                          where e.type.Equals("Credit") && e.manager_id == id
+                          select e).Count();
+            var cou=new List<int> ();
+            cou.Add(Debit);
+            cou.Add(Credit);
+            return cou;
         }
 
         public bool SupplierAdjust(int id, int id1)

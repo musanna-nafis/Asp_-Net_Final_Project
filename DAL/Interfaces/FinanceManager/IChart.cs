@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces.FinanceManager
 {
-   public  interface IPaymentHistory<CLASS, ID>
+    public interface IChart<ID>
     {
-        List<CLASS> Gethistory(ID id);
-        List<int> PaymentsChart(int id);
+        List<int> PaymentsChart(ID id);
     }
 }
