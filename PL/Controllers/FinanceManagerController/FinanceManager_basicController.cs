@@ -53,5 +53,24 @@ namespace PL.Controllers.FinanceManagerController
             var data = FinanceManagerBasicService.myprofile(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        // change info
+        [Route("api/financemanager/changeinfo/{id}")]
+        [HttpGet]
+        public HttpResponseMessage info(int id)
+        {
+            var data = FinanceManagerBasicService.myprofile(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/financemanager/changeinfo/{id}")]
+        [HttpPost]
+        public HttpResponseMessage info(int id,UserModel user)
+        {
+            var data = FinanceManagerBasicService.changeprofile(id,user);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+
     }
 }

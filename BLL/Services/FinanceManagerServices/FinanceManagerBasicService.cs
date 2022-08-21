@@ -70,5 +70,16 @@ namespace BLL.Services.FinanceManagerServices
             user.gender = data.gender;
             return user;
         }
+
+        public static string changeprofile(int id,UserModel u)
+        {
+            var user = new User();
+            user.username = u.username;
+            user.email = u.email;
+            user.phone = u.phone;
+            user.address = u.address;
+            var data = DataAccessFactory.FinanceManagerProfile1DataAccess().UpdateProfile(id,user);
+            return data;
+        }
     }
 }
