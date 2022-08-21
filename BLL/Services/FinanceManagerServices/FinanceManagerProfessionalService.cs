@@ -57,5 +57,16 @@ namespace BLL.Services.FinanceManagerServices
             }
             return Supplier;
         }
+
+        public static bool supplieradjust(int id,int id1)
+        {
+            return DataAccessFactory.FinanceManagerInvoiceDataAccess().SupplierAdjust(id,id1);
+           
+        }
+        public static bool customeradjust(int id, int id1)
+        {
+            return DataAccessFactory.FinanceManagerInvoiceDataAccess().CustomerAdjust(id, id1);
+
+        }
     }
 }

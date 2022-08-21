@@ -33,5 +33,21 @@ namespace PL.Controllers.FinanceManagerController
             var data = FinanceManagerProfessionalService.supplierpayment(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/financemanager/supplieradjust/{id}/{id}")]
+        [HttpGet]
+        public HttpResponseMessage SupplierAdjust(int id,int id1)
+        {
+            var data = FinanceManagerProfessionalService.supplieradjust(id,id1);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/financemanager/customeradjust/{id}/{id}")]
+        [HttpGet]
+        public HttpResponseMessage CustomerAdjust(int id, int id1)
+        {
+            var data = FinanceManagerProfessionalService.customeradjust(id, id1);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
     }
 }

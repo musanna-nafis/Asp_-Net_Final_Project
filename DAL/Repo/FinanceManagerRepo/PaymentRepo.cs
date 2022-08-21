@@ -24,7 +24,33 @@ namespace DAL.Repo.FinanceManagerRepo
 
         public bool CustomerAdjust(int id, int id1)
         {
-            throw new NotImplementedException();
+            var user = (from e in db.Users
+                        where e.id == id
+                        select e).SingleOrDefault();
+            var invoice = (from e in db.Invoices
+                           where e.id == id1
+                           select e).SingleOrDefault();
+            invoice.status = "Adjusted";
+            var asset = new Asset();
+            asset.type = "Sales";
+            asset.amount = invoice.total_amount;
+            asset.manager_id = user.id;
+            db.Assets.Add(asset);
+            //add to payment history
+            var payment_history = new Finance_payment_histories();
+            payment_history.type = "Credit";
+            payment_history.amount = invoice.total_amount;
+            payment_history.manager_id = user.id;
+            db.Finance_payment_histories.Add(payment_history);
+
+            //Banks Balance add
+            var bank = (from e in db.Banks
+                        where e.manager_id == user.id
+                        select e).SingleOrDefault();
+            bank.balance += payment_history.amount;
+            db.SaveChanges();
+            return true;
+
         }
 
         public bool Delete(int id)
@@ -68,7 +94,41 @@ namespace DAL.Repo.FinanceManagerRepo
 
         public bool SupplierAdjust(int id, int id1)
         {
-            throw new NotImplementedException();
+            var user = (from e in db.Users
+                        where e.id==id
+                        select e).SingleOrDefault();
+            var invoice = (from e in db.Invoices
+                           where e.id == id1
+                           select e).SingleOrDefault();
+            invoice.status = "Adjusted";
+
+            var asset = new Asset();
+            asset.type = "Purchases";
+            asset.amount = invoice.total_amount;
+            asset.manager_id = user.id;
+            db.Assets.Add(asset);
+
+            //add to payment history
+            var payment_history = new Finance_payment_histories();
+            payment_history.type = "Debit";
+            payment_history.amount = invoice.total_amount;
+            payment_history.manager_id = user.id;
+            db.Finance_payment_histories.Add(payment_history);
+
+            //
+            var liability = new Liability();
+            liability.type = "Expenses";
+            liability.amount = payment_history.amount;
+            liability.manager_id = user.id;
+
+            //Banks Balance add
+            var bank = (from e in db.Banks
+                        where e.manager_id == user.id
+                        select e).SingleOrDefault();
+            bank.balance -= payment_history.amount;
+
+            db.SaveChanges();
+            return true;
         }
 
         public bool Update(Finance_payment_histories obj)
