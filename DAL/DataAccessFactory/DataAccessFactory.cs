@@ -45,7 +45,10 @@ namespace DAL.DataAccessFactory
         {
             return new PaymentRepo(db);
         }
-
+        public static IInvoice<Invoice, int> FinanceManagerInvoiceDataAccess()
+        {
+            return new PaymentRepo(db);
+        }
 
         ///end
         public static IRepo<Product, int, bool> ProductDataAccess()

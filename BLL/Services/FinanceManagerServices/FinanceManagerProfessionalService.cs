@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Services.FinanceManagerServices
-{
+{ 
    public class FinanceManagerProfessionalService
     {
         public static List<Finance_payment_historiesModel> paymenthistory(int id)
@@ -25,6 +25,37 @@ namespace BLL.Services.FinanceManagerServices
                 });
             }
             return histories;
+        }
+        public static List<InvoiceModel> customerpayment(int id)
+        {
+            var data = DataAccessFactory.FinanceManagerInvoiceDataAccess().GetCustomer(id);
+            var Customer = new List<InvoiceModel>();
+            foreach (var item in data)
+            {
+                Customer.Add(new InvoiceModel()
+                {
+                    id = item.id,
+                    for_name = item.for_name,
+                    total_amount = item.total_amount,
+                });
+            }
+            return Customer;
+        }
+
+        public static List<InvoiceModel> supplierpayment(int id)
+        {
+            var data = DataAccessFactory.FinanceManagerInvoiceDataAccess().GetSupplier(id);
+            var Supplier = new List<InvoiceModel>();
+            foreach (var item in data)
+            {
+                Supplier.Add(new InvoiceModel()
+                {
+                    id = item.id,
+                    for_name = item.for_name,
+                    total_amount = item.total_amount,
+                });
+            }
+            return Supplier;
         }
     }
 }

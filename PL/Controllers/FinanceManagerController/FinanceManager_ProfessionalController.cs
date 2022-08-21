@@ -17,5 +17,21 @@ namespace PL.Controllers.FinanceManagerController
             var data = FinanceManagerProfessionalService.paymenthistory(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/financemanager/customerpayment/{id}")]
+        [HttpGet]
+        public HttpResponseMessage CustomerPayment(int id)
+        {
+            var data = FinanceManagerProfessionalService.customerpayment(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/financemanager/supplierpayment/{id}")]
+        [HttpGet]
+        public HttpResponseMessage SupplierPayment(int id)
+        {
+            var data = FinanceManagerProfessionalService.supplierpayment(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
     }
 }
