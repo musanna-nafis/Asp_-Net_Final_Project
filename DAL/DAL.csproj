@@ -139,6 +139,7 @@
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Common\IRepo.cs" />
+    <Compile Include="Interfaces\FinanceManager\IBank.cs" />
     <Compile Include="Interfaces\FinanceManager\IEmail.cs" />
     <Compile Include="Interfaces\FinanceManager\IInvoice.cs" />
     <Compile Include="Interfaces\FinanceManager\ILeave_request.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Interfaces\FinanceManager\IProfile.cs" />
     <Compile Include="Interfaces\ProductManager\IWarehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\FinanceManagerRepo\BudgetingRepo.cs" />
     <Compile Include="Repo\FinanceManagerRepo\EmailSendRepo.cs" />
     <Compile Include="Repo\FinanceManagerRepo\LeaveRequestRepo.cs" />
     <Compile Include="Repo\FinanceManagerRepo\PaymentRepo.cs" />

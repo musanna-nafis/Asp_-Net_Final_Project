@@ -55,6 +55,11 @@ namespace DAL.DataAccessFactory
             return new EmailSendRepo(db);
         }
 
+        public static IBank<Bank, int, bool> FinanceManagerBankworkDataAccess()
+        {
+            return new BudgetingRepo(db);
+        }
+
         ///end
         public static IRepo<Product, int, bool> ProductDataAccess()
         {
