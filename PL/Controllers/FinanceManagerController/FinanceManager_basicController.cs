@@ -71,6 +71,14 @@ namespace PL.Controllers.FinanceManagerController
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
+        [Route("api/financemanager/changepass/{id}")]
+        [HttpPost]
+        public HttpResponseMessage pass(int id, FinanceManagerPassModel p)
+        {
+            var data = FinanceManagerBasicService.changepass(id, p);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
 
     }
 }

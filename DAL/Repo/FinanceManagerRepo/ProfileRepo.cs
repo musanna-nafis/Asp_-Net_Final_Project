@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo.FinanceManagerRepo
 {
-   public class ProfileRepo : IRepo<User, int, bool> , IProfile<User , int, string>
+   public class ProfileRepo : IRepo<User, int, bool> , IProfile<User , int, string> , IPass<FinanceManagerPass,int,string>
     {
         private ERPEntities db;
 
@@ -44,6 +44,47 @@ namespace DAL.Repo.FinanceManagerRepo
         public bool Update(User obj)
         {
             throw new NotImplementedException();
+        }
+
+        public string UpdatePass(int id, FinanceManagerPass obj)
+        {
+            var a = (string)obj.password;
+            var b = (string)obj.password1;
+            var c = (string)obj.password2;
+
+            var user = (from e in db.Users
+                        where e.id==id
+                        select e).SingleOrDefault();
+
+            if (!user.password.Equals(a))
+            {
+                return "Your current password doesnot match";
+            }
+            else
+            {
+                if (!b.Equals(c))
+                {
+                    return "Your new password and confirm new password doesnot match";
+                }
+                else
+                {
+                    if (b.Length < 7)
+                    {
+                        return "New password must be at least 7 character";
+                    }
+                    else if (a.Equals(b))
+                    {
+                        return "Current password and new password should not be match";
+                    }
+                    else
+                    {
+                        user.password = b;
+                        db.SaveChanges();
+                        return "Password successfully updated";
+                    }
+                }
+            }
+            
         }
 
         public string UpdateProfile(int id, User ff)

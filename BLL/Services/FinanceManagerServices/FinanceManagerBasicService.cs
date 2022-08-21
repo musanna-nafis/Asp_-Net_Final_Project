@@ -81,5 +81,15 @@ namespace BLL.Services.FinanceManagerServices
             var data = DataAccessFactory.FinanceManagerProfile1DataAccess().UpdateProfile(id,user);
             return data;
         }
+
+        public static string changepass(int id, FinanceManagerPassModel p)
+        {
+            var pass = new FinanceManagerPass();
+            pass.password = p.password;
+            pass.password1 = p.password1;
+            pass.password2 = p.password2;
+            var data = DataAccessFactory.FinanceManagerProfile2DataAccess().UpdatePass(id,pass);
+            return data;
+        }
     }
 }

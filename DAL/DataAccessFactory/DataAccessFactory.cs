@@ -36,6 +36,10 @@ namespace DAL.DataAccessFactory
         {
             return new ProfileRepo(db);
         }
+        public static IPass<FinanceManagerPass, int, string> FinanceManagerProfile2DataAccess()
+        {
+            return new ProfileRepo(db);
+        }
 
         ///end
         public static IRepo<Product, int, bool> ProductDataAccess()

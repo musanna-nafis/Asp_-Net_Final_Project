@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces.FinanceManager
 {
-    public interface ILeave_request<CLASS, ID>
+    public interface IPass<CLASS, ID, RT>
     {
-        List<CLASS> GetLeave(ID id);
+        RT UpdatePass(ID id, CLASS obj);
     }
 }
