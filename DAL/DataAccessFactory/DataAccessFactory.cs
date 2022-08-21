@@ -41,6 +41,12 @@ namespace DAL.DataAccessFactory
             return new ProfileRepo(db);
         }
 
+        public static IPaymentHistory<Finance_payment_histories, int> FinanceManagerPaymentDataAccess()
+        {
+            return new PaymentRepo(db);
+        }
+
+
         ///end
         public static IRepo<Product, int, bool> ProductDataAccess()
         {

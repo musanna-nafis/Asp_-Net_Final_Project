@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces.FinanceManager
 {
-    public interface ILeave_request<CLASS, ID>
+   public  interface IPaymentHistory<CLASS, ID>
     {
-        List<CLASS> GetLeave(ID id);
+        List<CLASS> Gethistory(ID id);
     }
 }
