@@ -1,4 +1,5 @@
-﻿using BLL.Services.FinanceManagerServices;
+﻿using BLL.Entities;
+using BLL.Services.FinanceManagerServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,14 @@ namespace PL.Controllers.FinanceManagerController
         public HttpResponseMessage CustomerAdjust(int id, int id1)
         {
             var data = FinanceManagerProfessionalService.customeradjust(id, id1);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        [Route("api/financemanager/sendemail")]
+        [HttpPost]
+        public HttpResponseMessage sendemail(FinanceManager_EmailModel email)
+        {
+            var data = FinanceManagerProfessionalService.Sendemail(email);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
     }

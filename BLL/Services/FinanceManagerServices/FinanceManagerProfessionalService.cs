@@ -1,5 +1,6 @@
 ﻿using BLL.Entities;
 using DAL.DataAccessFactory;
+using DAL.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,16 @@ namespace BLL.Services.FinanceManagerServices
         public static bool customeradjust(int id, int id1)
         {
             return DataAccessFactory.FinanceManagerInvoiceDataAccess().CustomerAdjust(id, id1);
+
+        }
+        public static string Sendemail(FinanceManager_EmailModel email)
+        {
+            var e = new FinanceManager_Email();
+            e.To = email.To;
+            e.Subject = email.Subject;
+            e.Body = email.Body;
+            e.Password = email.Password;
+            return DataAccessFactory.FinanceManagerEmailDataAccess().emailsend(e);
 
         }
     }

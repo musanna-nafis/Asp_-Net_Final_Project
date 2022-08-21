@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\EmployeeModel.cs" />
     <Compile Include="Entities\FinanceManagerPassModel.cs" />
+    <Compile Include="Entities\FinanceManager_EmailModel.cs" />
     <Compile Include="Entities\Finance_payment_historiesModel.cs" />
     <Compile Include="Entities\InvoiceModel.cs" />
     <Compile Include="Entities\IssueModel.cs" />
