@@ -140,6 +140,8 @@
     </Compile>
     <Compile Include="Interfaces\Common\IRepo.cs" />
     <Compile Include="Interfaces\FinanceManager\IBank.cs" />
+    <Compile Include="Interfaces\FinanceManager\IBudget.cs" />
+    <Compile Include="Interfaces\FinanceManager\IChart.cs" />
     <Compile Include="Interfaces\FinanceManager\IEmail.cs" />
     <Compile Include="Interfaces\FinanceManager\IInvoice.cs" />
     <Compile Include="Interfaces\FinanceManager\ILeave_request.cs" />

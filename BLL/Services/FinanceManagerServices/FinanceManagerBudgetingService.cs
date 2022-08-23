@@ -43,7 +43,7 @@ namespace BLL.Services.FinanceManagerServices
             bank.holder_name = b.holder_name;
             bank.account_no = b.account_no;
             bank.balance = b.balance;
-            bank.manager_id = b.manager_id;
+            bank.manager_id =id;
             return DataAccessFactory.FinanceManagerBankworkDataAccess().Add(bank,id);
             
         }
@@ -55,7 +55,7 @@ namespace BLL.Services.FinanceManagerServices
             asset.amount = a.amount;
             asset.manager_id = a.manager_id;
             asset.type = a.type;
-            return DataAccessFactory.FinanceManagerBankworkDataAccess().Expenses(id,asset);
+            return DataAccessFactory.FinanceManagerAssetDataAccess().Expenses(id,asset);
 
         }
 
@@ -66,7 +66,7 @@ namespace BLL.Services.FinanceManagerServices
             lib.amount = a.amount;
             lib.manager_id = a.manager_id;
             lib.type = a.type;
-            return DataAccessFactory.FinanceManagerBankworkDataAccess().Liability(id, lib);
+            return DataAccessFactory.FinanceManagerLiabilityDataAccess().Liability(id, lib);
 
         }
 
@@ -77,7 +77,7 @@ namespace BLL.Services.FinanceManagerServices
             asset.amount = a.amount;
             asset.manager_id = a.manager_id;
             asset.type = a.type;
-            return DataAccessFactory.FinanceManagerBankworkDataAccess().Asset(id, asset);
+            return DataAccessFactory.FinanceManagerAssetDataAccess().Asset(id, asset);
 
         }
     }

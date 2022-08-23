@@ -23,13 +23,8 @@ namespace DAL.Repo.FinanceManagerRepo
             {
                 return "Balance can not be negative";
             }
-            var bank = new Bank();
-            bank.manager_id = id;
-            bank.balance = b.balance;
-            bank.name = b.name;
-            bank.holder_name = b.holder_name;
-            bank.account_no = b.account_no;
-            db.Banks.Add(bank);
+          
+            db.Banks.Add(b);
             db.SaveChanges();
             return "New Bank Account Created";
         }

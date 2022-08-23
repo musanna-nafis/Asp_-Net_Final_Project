@@ -46,7 +46,7 @@ namespace DAL.Repo.FinanceManagerRepo
             //Banks Balance add
             var bank = (from e in db.Banks
                         where e.manager_id == user.id
-                        select e).SingleOrDefault();
+                        select e).FirstOrDefault();
             bank.balance += payment_history.amount;
             db.SaveChanges();
             return true;
@@ -139,7 +139,7 @@ namespace DAL.Repo.FinanceManagerRepo
             //Banks Balance add
             var bank = (from e in db.Banks
                         where e.manager_id == user.id
-                        select e).SingleOrDefault();
+                        select e).FirstOrDefault();
             bank.balance -= payment_history.amount;
 
             db.SaveChanges();

@@ -60,6 +60,16 @@ namespace DAL.DataAccessFactory
             return new BudgetingRepo(db);
         }
 
+        public static IBudget<Asset, int, string> FinanceManagerAssetDataAccess()
+        {
+            return new BudgetingRepo(db);
+        }
+
+        public static IBudget<Liability, int, string> FinanceManagerLiabilityDataAccess()
+        {
+            return new BudgetingRepo(db);
+        }
+
         ///end
         public static IRepo<Product, int, bool> ProductDataAccess()
         {

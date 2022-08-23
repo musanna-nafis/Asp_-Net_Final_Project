@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\AssetModel.cs" />
+    <Compile Include="Entities\BankModel.cs" />
     <Compile Include="Entities\EmployeeModel.cs" />
     <Compile Include="Entities\FinanceManagerPassModel.cs" />
     <Compile Include="Entities\FinanceManager_EmailModel.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="Entities\InvoiceModel.cs" />
     <Compile Include="Entities\IssueModel.cs" />
     <Compile Include="Entities\LeaveRequestModel.cs" />
+    <Compile Include="Entities\LiabilityModel.cs" />
     <Compile Include="Entities\OrganizationModel.cs" />
     <Compile Include="Entities\ProductModel.cs" />
     <Compile Include="Entities\TokenModel.cs" />
@@ -56,6 +59,7 @@
     <Compile Include="Entities\WarehouseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FinanceManagerServices\FinanceManagerBasicService.cs" />
+    <Compile Include="Services\FinanceManagerServices\FinanceManagerBudgetingService.cs" />
     <Compile Include="Services\FinanceManagerServices\FinanceManagerProfessionalService.cs" />
     <Compile Include="Services\ProductManagerServices\ProductManagerIssueServices.cs" />
     <Compile Include="Services\ProductManagerServices\ProductServices.cs" />
